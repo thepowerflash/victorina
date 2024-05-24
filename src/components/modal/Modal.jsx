@@ -37,8 +37,8 @@ const Modal = ({ handleCloseModal, isOpen, question, userAnswer, onAnswerChange,
             onChange={(e) => onAnswerChange(e.target.value)}
             className="answer-input"
           />
-          <button onClick={onSubmitAnswer} className="submit-button">Submit Answer</button>
-          <p>Time left: {timeLeft} seconds</p>
+          <button onClick={onSubmitAnswer} className="submit-button">Ответить</button>
+          <p>Осталось времени {timeLeft} сек</p>
         </div>
       </div>
       <button className="close_button" onClick={handleCloseModal}>&times;</button>

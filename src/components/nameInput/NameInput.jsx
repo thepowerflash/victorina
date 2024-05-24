@@ -15,14 +15,14 @@ const PlayerNameInput = ({ onNameSubmit }) => {
     if (validateName(playerName)) {
       onNameSubmit(playerName);
     } else {
-      setError("Invalid name. Please use letters, numbers, and underscores only.");
+      setError("Неккоректное имя ,попробуйте еще !!!");
     }
   };
 
   return (
     <div className="modal">
       <div className="modal-content">
-        <h2>Enter Player Name</h2>
+        <h2>Напишите свое имя</h2>
         <form onSubmit={handleSubmit}>
           <input
             type="text"
@@ -30,7 +30,7 @@ const PlayerNameInput = ({ onNameSubmit }) => {
             onChange={(e) => setPlayerName(e.target.value)}
             placeholder="Enter your name"
           />
-          <button type="submit">Start Game</button>
+          <button type="submit">Начать игру</button>
           {error && <p>{error}</p>}
         </form>
       </div>
