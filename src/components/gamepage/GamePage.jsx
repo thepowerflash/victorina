@@ -5,7 +5,7 @@ import './gemePage.css';
 import { useScore } from './../scorecontext/ScoreContext';
 
 const fetchQuestions = async () => {
-  const response = await fetch('https://opentdb.com/api.php?amount=500');
+  const response = await fetch('https://opentdb.com/api.php?amount=1500');
   if (!response.ok) {
     if (response.status === 429) {
       throw new Error('Too many requests. Please try again later.');
@@ -141,27 +141,27 @@ const Quiz = () => {
 
   return (
     <div className='container'>
-      <h1 className="h1">Своя Игра</h1>
-      {/* <p>Player Name: </p> */}
-      <div className="quiz-container">
-  <div className="category-column">
-    {data.categories.map((category, categoryIndex) => (
-      <div className='category-collumn-inner' key={categoryIndex}>
-        <h2>{category}</h2>
-        <div className="category-row">
-          {sortedQuestions.map((question, index) => (
-            question.category === category && (
-              <div key={index} className={`quiz-card ${currentQuestionIndex === index ? 'answered' : ''} ${results[index] !== undefined ? (results[index] ? 'correct' : 'incorrect') : ''}`} onClick={() => handleQuestionClick(index)}>
-                <h3>{question.difficulty === "easy" ? 100 : question.difficulty === "medium" ? 200 : 300}</h3>
-              </div>
-            )
-          ))}
-        </div>
+    <h1 className="game_name">Своя Игра</h1>
+    <div className="quiz-container">
+      <div className="category-column">
+        {data.categories.map((category, categoryIndex) => (
+          <div className='category-collumn-inner' key={categoryIndex}>
+            <h2>{category}</h2>
+            <div className="category-row">
+              {sortedQuestions.map((question, index) => (
+                question.category === category && (
+                  <div key={index} className={`quiz-card ${currentQuestionIndex === index ? 'answered' : ''} ${results[index] !== undefined ? (results[index] ? 'correct' : 'incorrect') : ''}`} onClick={() => handleQuestionClick(index)}>
+                    <h3>{question.difficulty === "easy" ? 100 : question.difficulty === "medium" ? 200 : 300}</h3>
+                  </div>
+                )
+              ))}
+            </div>
+          </div>
+        ))}
       </div>
-    ))}
-  </div>
-</div>
-
+    </div>
+  
+  
       {/* <p>User Score: {userScore}</p> */}
       <Modal
         isOpen={currentQuestionIndex !== null}
